@@ -40,7 +40,6 @@ public class NotationConverter {
 
     private int TwoLengthNumberCalculator(int[] inputArray) {
         int result;
-        System.out.println("TwoLength method running..");
         if (inputArray[0] < inputArray[1]) {
             result = (inputArray[1] - inputArray[0]);
 
