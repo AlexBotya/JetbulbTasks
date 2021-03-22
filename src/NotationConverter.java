@@ -1,6 +1,13 @@
 public class NotationConverter {
+
+
     public int toArabic(String romanNotation) throws InvalidValueException{
-        checkNullInputString(romanNotation);
+        try{
+        checkNullInputString(romanNotation);}
+        catch (NullPointerException e) {
+            throw new InvalidValueException(errorMessage, e);
+
+        }
 
         inputCharArray = romanNotation.toCharArray();
 
@@ -17,11 +24,10 @@ public class NotationConverter {
     private final int[] arabicKeysArray = {1, 5, 10, 50, 100, 500, 1000};
     char[] inputCharArray;
     String errorMessage = "String must contain only valid roman numerals [I, V, X, L, C, D, M]";
-    String romanNotation;
 
-    public NotationConverter(String romanNotation) {
-        this.romanNotation = romanNotation;
-    }
+
+
+
 
     public int ResultCalculator(int[] inputArray) {
         int result;
@@ -70,7 +76,11 @@ public class NotationConverter {
     }
 
     private void checkNullInputString(String inputString) {
-        if (inputString.equals("")) throw new InvalidValueException(errorMessage);
+        if (inputString.equals("") ) throw new InvalidValueException(errorMessage);
+
+
+
+
     }
 
     private void checkIncorrectRomanSymbols(int[] inputArabicArray) {

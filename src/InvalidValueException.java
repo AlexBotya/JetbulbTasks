@@ -6,4 +6,7 @@ public class InvalidValueException extends RuntimeException{
     public InvalidValueException(String message, Throwable cause) {
         super(message, cause);
     }
+
+    public InvalidValueException() {
+    }
 }
