@@ -2,12 +2,8 @@ public class NotationConverter {
 
 
     public int toArabic(String romanNotation) throws InvalidValueException{
-        try{
-        checkNullInputString(romanNotation);}
-        catch (NullPointerException e) {
-            throw new InvalidValueException(errorMessage, e);
 
-        }
+        checkNullAndEmptyInputString(romanNotation);
 
         inputCharArray = romanNotation.toCharArray();
 
@@ -75,10 +71,12 @@ public class NotationConverter {
         return result;
     }
 
-    private void checkNullInputString(String inputString) {
-        if (inputString.equals("") ) throw new InvalidValueException(errorMessage);
-
-
+    private void checkNullAndEmptyInputString(String inputString) {
+        try {
+            if (inputString.equals("") ) throw new InvalidValueException(errorMessage);
+        }catch (NullPointerException e) {
+            throw new InvalidValueException(errorMessage, e);
+        }
 
 
     }
